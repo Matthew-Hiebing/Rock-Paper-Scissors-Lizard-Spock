@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useEffect, useState } from "react";
 
 const Game = () => {
   const [computerSelection, setComputerSelection] = useState(null);
@@ -9,16 +9,55 @@ const Game = () => {
   const clickHandler = (value) => {
     setUserSelection(value);
     randomChoiceGenerator();
-  }
+  };
 
   const randomChoiceGenerator = () => {
-    const randomSelection = selection[Math.floor(Math.random() * selection.length)];
+    const randomSelection =
+      selection[Math.floor(Math.random() * selection.length)];
     setComputerSelection(randomSelection);
-  }
+  };
+
+  useEffect(() => {
+    {
+      switch (userSelection + computerSelection) {
+        case "✂️📰":
+        case "🧱✂️":
+        case "📰🧱":
+        case "🦎📰":
+        case "🖖✂️":
+        case "🧱🦎":
+        case "📰🖖":
+        case "🖖🧱":
+        case "✂️🦎":
+        case "🦎🖖":
+          setFinalOutput("YOU WON! 🎉");
+          break;
+        case "📰✂️":
+        case "✂️🧱":
+        case "🧱📰":
+        case "📰🦎":
+        case "✂️🖖":
+        case "🦎🧱":
+        case "🖖📰":
+        case "🧱🖖":
+        case "🦎✂️":
+        case "🖖🦎":
+          setFinalOutput("YOU LOSE! 👎 ");
+          break;
+        case "🧱🧱":
+        case "📰📰":
+        case "✂️✂️":
+        case "🦎🦎":
+        case "🖖🖖":
+          setFinalOutput("ITS A DRAW! 💥 ");
+          break;
+      }
+    }
+  }, [computerSelection, userSelection]);
 
   return (
     <>
-      <h1>Rock Paper Scissors lizard Spock</h1>
+      <h1>Rock Paper Scissors Lizard Spock</h1>
       <div>
         <div className="container">
           <div className="section">
@@ -35,11 +74,13 @@ const Game = () => {
             <div className="show computer">{computerSelection}</div>
           </div>
         </div>
-        <h2>Final Output</h2>
+        <h2>{finalOutput} </h2>
 
         <div className="attack-btn">
           {selection.map((select, index) => (
-            <button key={index} onClick={() => clickHandler(select)}>{select}</button>
+            <button key={index} onClick={() => clickHandler(select)}>
+              {select}
+            </button>
           ))}
         </div>
       </div>
@@ -47,4 +88,4 @@ const Game = () => {
   );
 };
 
-export default Game
+export default Game;
