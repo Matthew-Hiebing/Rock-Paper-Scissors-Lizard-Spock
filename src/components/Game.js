@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Game = () => {
+  const [instructions, setInstructionsPresence] = useState(null);
   const [computerSelection, setComputerSelection] = useState(null);
   const [userSelection, setUserSelection] = useState(null);
   const [finalOutput, setFinalOutput] = useState(null);
@@ -12,12 +13,13 @@ const Game = () => {
   };
 
   const randomChoiceGenerator = () => {
-    const randomSelection =
-      selection[Math.floor(Math.random() * selection.length)];
+    const randomSelection = selection[Math.floor(Math.random() * selection.length)];
     setComputerSelection(randomSelection);
   };
 
   useEffect(() => {
+    console.log('useEffect() ran');
+    console.log(userSelection, computerSelection);
     {
       switch (userSelection + computerSelection) {
         case "✂️📰":
@@ -51,9 +53,12 @@ const Game = () => {
         case "🖖🖖":
           setFinalOutput("ITS A DRAW! 💥 ");
           break;
+        default:
+          setFinalOutput('Choose your selection from the 5 options below.  The computer will make a selection immediately after you make your choice.')
       }
     }
-  }, [computerSelection, userSelection]);
+  }, [computerSelection, userSelection]); // computerSelection and userSelection are decencies.  useEffect() only executes the callback if
+  // the decencies have changed between renderings.
 
   return (
     <>
@@ -74,8 +79,8 @@ const Game = () => {
             <div className="show computer">{computerSelection}</div>
           </div>
         </div>
-        <h2>{finalOutput} </h2>
-
+        <br />
+        <h3 className="output">{finalOutput}</h3>
         <div className="attack-btn">
           {selection.map((select, index) => (
             <button key={index} onClick={() => clickHandler(select)}>

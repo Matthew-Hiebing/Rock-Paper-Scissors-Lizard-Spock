@@ -85,7 +85,7 @@ h2 {
   justify-content: center;
   width: 900px;
   height: 100px;
-  padding-top: 150px;
+  padding-top: 100px;
 }
 .attack-btn button {
   margin: 0 30px;
@@ -103,4 +103,12 @@ h2 {
 button:active {
   box-shadow: 0 5px 5px rgb(51, 51, 51);
   transform: translateY(4px);
+}
+
+.instructions {
+    text-align: center;
+}
+
+.output {
+  text-align: center;
 }
