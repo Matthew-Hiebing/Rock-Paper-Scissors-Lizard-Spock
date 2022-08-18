@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import GameLogic from './rockpaperscissorlizardspock.png'
 
 const Game = () => {
-  const [instructions, setInstructionsPresence] = useState(null);
   const [computerSelection, setComputerSelection] = useState(null);
   const [userSelection, setUserSelection] = useState(null);
   const [finalOutput, setFinalOutput] = useState(null);
@@ -54,7 +54,7 @@ const Game = () => {
           setFinalOutput("ITS A DRAW! 💥 ");
           break;
         default:
-          setFinalOutput('Choose your selection from the 5 options below.  The computer will make a selection immediately after you make your choice.')
+          setFinalOutput('Choose your selection from the 5 options below.  The computer will make a selection immediately after you make your choice.  Game logic is below.')
       }
     }
   }, [computerSelection, userSelection]); // computerSelection and userSelection are decencies.  useEffect() only executes the callback if
@@ -80,7 +80,7 @@ const Game = () => {
           </div>
         </div>
         <br />
-        <h3 className="output">{finalOutput}</h3>
+        <h2>{finalOutput}</h2>
         <div className="attack-btn">
           {selection.map((select, index) => (
             <button key={index} onClick={() => clickHandler(select)}>
@@ -88,6 +88,10 @@ const Game = () => {
             </button>
           ))}
         </div>
+      </div>
+      <br />
+      <div className="container">
+        <img src={GameLogic} alt="Game Logic" />
       </div>
     </>
   );

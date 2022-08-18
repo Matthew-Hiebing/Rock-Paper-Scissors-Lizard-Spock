@@ -78,6 +78,7 @@ h2 {
   justify-content: center;
   width: 900px;
   height: 100px;
+  text-align: center;
 }
 .attack-btn {
   display: flex;
@@ -104,11 +105,14 @@ button:active {
   box-shadow: 0 5px 5px rgb(51, 51, 51);
   transform: translateY(4px);
 }
-
-.instructions {
-    text-align: center;
-}
-
-.output {
-  text-align: center;
+img {
+  display: flex;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  height: 40em;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
