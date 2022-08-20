@@ -15,4 +15,4 @@ npm install react-scripts 5.0.1
 ![Imgur](https://i.imgur.com/SfzqAJt.jpg)
 
 ## Questions?
-Send me a message on GitHub (Matthew-Hiebing) or E-mail me at: Matthew.Hiebing@gmail.com
+Send me a message on GitHub (Matthew-Hiebing) or email me at: Matthew.Hiebing@gmail.com
